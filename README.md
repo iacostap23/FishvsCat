@@ -61,12 +61,10 @@ objetivo es reducir las vidas del enemigo a cero.
 Ambos personajes comienzan con **3 vidas**.\
 Estas se representan con pequeños rectángulos a modo de corazones.
 
-  Evento                          Consecuencia
-  ------------------------------- ---------------
-  Pez impacta al gato             Gato -1 vida
-  Bala del pez sale de pantalla   Pez -1 vida
-  Gato llega a 0 vidas            **FISH WINS**
-  Pez llega a 0 vidas             **CAT WINS**
+  - Pez impacta al gato: Gato -1 vida
+  - Bala del pez sale de pantalla: Pez -1 vida
+  - Gato llega a 0 vidas: **FISH WINS**
+  - Pez llega a 0 vidas: **CAT WINS**
 
 ------------------------------------------------------------------------
 
