@@ -1,0 +1,182 @@
+class Main {
+
+    function void main() {
+        var Draw1 fishShot;
+        var boolean fishShooting;
+
+        var int fishRow, fishCol;
+        var int catRow, catCol;
+
+        var int fishLives, catLives;
+        var int key;
+
+        var int offsetX, offsetY;
+        var int fishX, fishY, catX, catY;
+        var int shotX, shotY;
+
+        var int catDir;
+
+        let fishRow = 200;
+        let fishCol = 22;
+
+        let catRow  = 200;
+        let catCol  = 8;
+
+        let fishLives = 3;
+        let catLives  = 3;
+
+        let fishShooting = false;
+
+        let fishShot = Draw1.new(fishCol, fishRow);
+
+        let catDir = 1;
+
+        while (true) {
+
+            let key = Keyboard.keyPressed();
+
+            if (key = 131) {
+                if (fishRow > 0) {
+                    let fishRow = fishRow - 1;
+                }
+            }
+
+            if (key = 133) {
+                if (fishRow < 240) {
+                    let fishRow = fishRow + 1;
+                }
+            }
+
+            if (key = 130) {
+                if (fishCol > 18) {
+                    let fishCol = fishCol - 1;
+                }
+            }
+
+            if (key = 132) {
+                if (fishCol < 29) {
+                    let fishCol = fishCol + 1;
+                }
+            }
+
+            if (catDir > 0) {
+                if (catRow < 240) {
+                    let catRow = catRow + 2;
+                } else {
+                    let catDir = -1;
+                }
+            } else {
+                if (catRow > 0) {
+                    let catRow = catRow - 2;
+                } else {
+                    let catDir = 1;
+                }
+            }
+
+            if ((key = 32) & (~fishShooting)) {
+                let fishShooting = true;
+                let offsetX = 0;
+                let offsetY = -2;
+                do fishShot.shootAt(fishCol + offsetX, fishRow + offsetY);
+            }
+
+            let fishX = fishCol * 16;
+            let fishY = fishRow;
+
+            let catX  = catCol * 16;
+            let catY  = catRow;
+
+            if (fishShooting) {
+                do fishShot.moveLeft();
+                let shotX = fishShot.getX();
+                let shotY = fishShot.getY();
+
+                if (Main.intersects(shotX, shotY, 6, 2,
+                                    catX, catY, 48, 20)) {
+                    let catLives = catLives - 1;
+                    let fishShooting = false;
+                } else {
+                    if (fishShot.offScreen()) {
+                        let fishLives = fishLives - 1;
+                        let fishShooting = false;
+                    }
+                }
+            }
+
+            if (catLives = 0) {
+                do Screen.clearScreen();
+                do Output.moveCursor(10, 20);
+                do Output.printString("FISH WINS!");
+                do Sys.halt();
+            }
+
+            if (fishLives = 0) {
+                do Screen.clearScreen();
+                do Output.moveCursor(10, 20);
+                do Output.printString("CAT WINS!");
+                do Sys.halt();
+            }
+
+            do Screen.clearScreen();
+
+            do Main.drawBarrier();
+
+            do Fish.draw(fishRow, fishCol);
+            do Cat.draw(catRow, catCol);
+
+            if (fishShooting) {
+                do fishShot.draw1();
+            }
+
+            do Main.drawHearts(catLives, 40, 10);
+            do Main.drawHearts(fishLives, 420, 10);
+
+            do Sys.wait(5);
+        }
+
+        return;
+    }
+
+    function void drawHearts(int lives, int xStart, int y) {
+        var int i;
+        var int x;
+
+        let i = 0;
+        let x = xStart;
+
+        while (i < lives) {
+            do Screen.drawRectangle(x, y, x + 10, y + 6);
+            let x = x + 14;
+            let i = i + 1;
+        }
+
+        return;
+    }
+
+    function void drawBarrier() {
+        var int x;
+        let x = 256;
+        do Screen.drawRectangle(x, 0, x + 3, 255);
+        return;
+    }
+
+    function boolean intersects(int x1, int y1, int w1, int h1,
+                               int x2, int y2, int w2, int h2) {
+
+        if (x1 + w1 < x2) {
+            return false;
+        }
+        if (x2 + w2 < x1) {
+            return false;
+        }
+
+        if (y1 + h1 < y2) {
+            return false;
+        }
+        if (y2 + h2 < y1) {
+            return false;
+        }
+
+        return true;
+    }
+}

@@ -1,0 +1,53 @@
+class Draw1 {
+
+    field int x, y;
+    field int width, height;
+
+    constructor Draw1 new(int Ax, int Ay) {
+        let x = Ax * 16;
+        let y = Ay;
+        let width = 6;
+        let height = 2;
+        return this;
+    }
+
+    method void draw1() {
+        if ((x > -1) & ((x + width) < 512)) {
+            do Screen.drawRectangle(x, y, x + width, y + height);
+        }
+        return;
+    }
+
+    method void erase() {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x, y, x + width, y + height);
+        do Screen.setColor(true);
+        return;
+    }
+
+    method void moveLeft() {
+        let x = x - 6;
+        return;
+    }
+
+    method boolean offScreen() {
+        if (x < 0) {
+            return true;
+        }
+        return false;
+    }
+
+    method void shootAt(int Ax, int Ay) {
+        let x = Ax * 16;
+        let y = Ay;
+        return;
+    }
+
+    method int getX() {
+        return x;
+    }
+
+    method int getY() {
+        return y;
+    }
+}
