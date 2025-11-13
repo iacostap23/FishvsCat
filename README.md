@@ -100,11 +100,14 @@ Núcleo general: - Movimiento del pez\
 
 ##  ¿Cómo Ejecutarlo?
 
-1. Abrir la carpeta del proyecto en **JackCompiler** 
-2. En la interfaz del JackCompiler, cargar la carpeta `JUEGO_FINAL` 
-3. Verificar que se listan los archivos `Main.jack`, `Fish.jack`, `Cat.jack`, `Draw1.jack`.  
-4. Hacer clic en **Compile** para generar los archivos `.vm`.  
-5. Luego hacer clic en **Run**: esto abre automáticamente el **VMEmulator** con el programa cargado.  
-6. En el VMEmulator, simplemente presionar **Run** y ya, a jugar.  
+1. Abrir la carpeta del proyecto en **JackCompiler**. 
+2. En la interfaz del JackCompiler, cargar la carpeta `JUEGO_FINAL` .
+3. Verificar que se listan los archivos `Main.jack`, `Fish.jack`, `Cat.jack`, `Draw1.jack`.
+4. Hacer clic en **Compile** para generar los archivos `.vm`.
+5. Luego hacer clic en **Run**: esto abre automáticamente el **VMEmulator** con el programa cargado.
+6. En el **VMEmulator**, mover el control deslizante de velocidad hacia **Fast** para que el juego corra fluido.
+7. En la parte inferior del VMEmulator, hacer clic en **Enable Keyboard** para activar el teclado.
+8. Finalmente, presionar **Run** y listo, ¡a jugar! 
+
 
 
