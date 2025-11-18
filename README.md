@@ -1,6 +1,6 @@
 #  Fish vs Cat
 
-## 🎥 Video Demostración
+## 🎥 Video Demostración y Explicación
 
 [![Ver demostración en YouTube](https://img.youtube.com/vi/ImzMFrrn1EQ/0.jpg)](https://www.youtube.com/watch?v=ImzMFrrn1EQ)
 
