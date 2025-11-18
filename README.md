@@ -4,6 +4,9 @@
 
 [![Ver demostración en YouTube](https://img.youtube.com/vi/ImzMFrrn1EQ/0.jpg)](https://www.youtube.com/watch?v=ImzMFrrn1EQ)
 
+**Enlace directo al video:**  
+https://www.youtube.com/watch?v=ImzMFrrn1EQ
+
 
 ## Descripción General
 
